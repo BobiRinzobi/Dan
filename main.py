@@ -6,7 +6,7 @@ bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(commands=['start','help'])
 def help(message: telebot.types.Message):
-    text = 'для начала работы введите команду:\n<имя валюты> \
+    text = 'Привет,дорогой пользователь!Я valutabot. Для начала работы введите команду:\n<имя валюты> \
 <в какую валюту> \
 <количество валюты>(Чтобы узнать валюты используйте команду: values)'
     bot.reply_to(message, text)
