@@ -20,8 +20,10 @@ def help(message: telebot.types.Message):
 def upd(message: telebot.types.Message):
     values = message.text.split()
     values = list(map(str.lower,values))
-    if len(values)!= 3:
-        raise ValueError("Неверное количество параметров")
+    try:
+        len(values)!= 3
+    except APIException as e:
+        bot.reply_to(message, 'Неверное количество параметров')
     try:
         result = Convertor.get_price(values)
     except APIException as e:
